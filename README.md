@@ -123,14 +123,19 @@ The application creates the configured worksheet if it does not exist and adds a
 │   │   ├── search_provider.py
 │   │   └── sheets_repository.py
 │   ├── routes/
+    │   ├── __init__.py
 │   │   └── web.py
 │   ├── services/
 │   │   └── recruiter_search.py
-│   └── templates/
-│       └── index.html
+│   ├── templates/
+│   │    └── index.html
+    ├── static/
+│   │   └── css/
+│           └── style.css
 ├── .env.example
 ├── .gitignore
 ├── README.md
+├── LICENSE
 ├── requirements.txt
 └── run.py
 ```
