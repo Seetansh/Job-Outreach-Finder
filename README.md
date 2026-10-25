@@ -4,6 +4,18 @@ A Flask web application that searches for publicly indexed recruiter profiles by
 
 Names and designations are inferred from public search-result metadata. Results may be incomplete, outdated, or inaccurate and should be independently verified.
 
+## Screenshots
+
+### 1. Web Application Dashboard
+Search for recruiters by target company and location, then view retrieved profiles directly in the app interface:
+
+![Job Outreach Finder Dashboard](app/assets/dashboard.png)
+
+### 2. Automated Google Sheets Sync
+Extracted profiles are deduplicated and saved directly to your target Google Sheet:
+
+![Google Sheets Integration](app/assets/google-sheets.png)
+
 ## Features
 
 - Search by company and location.
@@ -157,3 +169,6 @@ This tool helps identify publicly indexed professional profiles. Search metadata
 
 ### Why I Created This
 While actively job hunting, I found the process of manually searching for company recruiters and talent acquisition teams tedious and time-consuming. I built this tool to automate the repetitive search and organization steps—**reducing manual search time by nearly 95%** and making targeted job outreach significantly faster and more structured.
+
+## License
+This project is licensed under the **MIT License**.
