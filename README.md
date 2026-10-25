@@ -150,3 +150,10 @@ This tool helps identify publicly indexed professional profiles. Search metadata
 - **Permission errors:** Share the spreadsheet with the service account's email address and grant it editing access.
 - **No results:** Search providers may return limited results, or there may be no matching public results for the selected company and location.
 - **Outdated or inaccurate results:** Search-result metadata is provided by external search providers and may not reflect current profile information.
+
+## Author
+
+**Seetansh Bhatnagar**
+
+### Why I Created This
+While actively job hunting, I found the process of manually searching for company recruiters and talent acquisition teams tedious and time-consuming. I built this tool to automate the repetitive search and organization steps—**reducing manual search time by nearly 95%** and making targeted job outreach significantly faster and more structured.
