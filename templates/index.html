@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Outreach Finder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+            color: #1f2937
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: 35px auto;
+            padding: 0 20px
+        }
+
+        h1 {
+            margin-bottom: 6px
+        }
+
+        .sub,
+        .note {
+            color: #6b7280
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 12px #00000012
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px
+        }
+
+        input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 13px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 15px
+        }
+
+        button {
+            margin-top: 16px;
+            background: #2563eb;
+            color: #fff;
+            border: 0;
+            padding: 13px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold
+        }
+
+        .alert {
+            padding: 13px;
+            border-radius: 8px;
+            margin-bottom: 14px
+        }
+
+        .success {
+            background: #dcfce7;
+            color: #166534
+        }
+
+        .danger {
+            background: #fee2e2;
+            color: #991b1b
+        }
+
+        .warning {
+            background: #fef3c7;
+            color: #92400e
+        }
+
+        .tablewrap {
+            overflow: auto
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 900px
+        }
+
+        th,
+        td {
+            padding: 11px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 14px
+        }
+
+        th {
+            background: #f9fafb
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold
+        }
+
+        @media(max-width:700px) {
+            .grid {
+                grid-template-columns: 1fr
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Job Outreach Finder</h1>
+        <p class="sub">Free version: DuckDuckGo-powered search. Enter a company and location, then automatically search
+            and save up to 30 unique public LinkedIn recruiter profiles.</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category,message in messages %}
+        <div class="alert {{category}}">{{message}}</div>
+        {% endfor %}
+        {% endwith %}
+
+        <div class="card">
+            <h3>Find & Save Recruiters</h3>
+            <form method="post">
+                <div class="grid">
+                    <input name="company" placeholder="Company (e.g. EY)" required>
+                    <input name="location" placeholder="Location (e.g. Vadodara)" required>
+                </div>
+                <button type="submit">🔍 Find & Save Up To 30 Recruiters</button>
+            </form>
+            <p class="note">No search API key required. Duplicate LinkedIn URLs are automatically skipped.</p>
+        </div>
+
+        <div class="card">
+            <h3>Latest Recruiters</h3>
+            <div class="tablewrap">
+                <table>
+                    <tr>
+                        <th>Company</th>
+                        <th>Location</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <!-- <th>Profile</th>
+                        <th>Status</th>
+                        <th>Date</th> -->
+                    </tr>
+                    {% for r in rows %}
+                    <tr>
+                        <td>{{r.get("Company","")}}</td>
+                        <td>{{r.get("Search Location","")}}</td>
+                        <td>{{r.get("Recruiter Name","")}}</td>
+                        <td>{{r.get("Designation","")}}</td>
+                        <!-- <td>{% if r.get("LinkedIn Profile URL","") %}<a href="{{r.get('LinkedIn Profile URL','')}}" target="_blank">Open Profile</a>{% endif %}</td>
+<td>{{r.get("Status","")}}</td>
+<td>{{r.get("Search Date","")}}</td> -->
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="7">No recruiters saved yet.</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
